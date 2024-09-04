@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Question and Answer</title>
+    <link rel="stylesheet" type="text/css" href="/static/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Ask a Question</h1>
+        <form method="post" action="/ask">
+            <label for="question">Question:</label>
+            <input type="text" id="question" name="question" required>
+            <button type="submit">Ask</button>
+        </form>
+
+        {% if result %}
+        <div class="result {{ 'success' if 'successfully' in result else 'error' }}">
+            {{ result }}
+        </div>
+        {% endif %}
+
+        {% if answer %}
+        <div class="answer-section">
+            <h2>Answer:</h2>
+            <p>{{ answer }}</p>
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>
